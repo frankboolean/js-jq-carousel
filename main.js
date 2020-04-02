@@ -13,6 +13,12 @@ $(document).ready(function(){
    //funzione di CB
      nextImg
  );
+// gestione evento pallino
+
+$(".nav > i").click(
+  // funzione di CB
+   ballClick
+)
 
 
  // funzione next
@@ -69,6 +75,37 @@ function prevImg() {
   }
 
 }
+
+
+
+function ballClick() {
+
+ var imgActive = $('.images img.active');
+ // ......
+
+ var ballActive = $('.nav i.active');
+ // ....
+ ballActive.removeClass('active');
+
+imgActive.removeClass('active');
+
+if(imgActive.hasClass('last')){
+  $('.images img.first').addClass('active');
+  $('.nav i.first').addClass('active');
+
+}
+else {
+
+  imgActive.next().addClass('active');
+  ballActive.next().addClass('active');
+
+}
+
+
+
+}
+
+
 
 
 
